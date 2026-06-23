@@ -5,7 +5,15 @@ import os
 
 app = FastAPI()
 
-llm = LLMClient("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")
+llm = LLMClient("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")
+
+
+class ChatRequest(BaseModel):
+    prompt: str
+
+@app.get("/")
+def read_root():
+    return {"message:": "AI is running"}
 
 class ChatRequest(BaseModel):
     prompt: str
@@ -13,9 +21,15 @@ class ChatRequest(BaseModel):
 @app.post("/chat")
 def chat(request: ChatRequest):
 
-    answer = llm.ask(request.prompt)
+    answer=llm.ask(request.prompt)
 
     return {
         "prompt": request.prompt,
         "response": answer
     }
+
+# @app.get("/chat")
+# def chat(prm):
+#     prompt="what is 3+3?"
+#     return llm.ask("what is 3+3?")
+    

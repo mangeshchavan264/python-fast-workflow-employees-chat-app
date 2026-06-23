@@ -11,9 +11,16 @@ class LLMClient:
         response = self.client.chat.completions.create(
             model="openai/gpt-oss-120b:free",
             messages=[
-                {"role": "user", "content": prompt}
+                 {
+                    "role": "system",
+                    "content": "You are a senior .NET architect and interview coach."
+                 },
+                {
+                    "role": "user",
+                    "content": prompt
+                }
             ],
-            max_tokens=200
+            max_tokens=10
         )
 
         return response.choices[0].message.content
