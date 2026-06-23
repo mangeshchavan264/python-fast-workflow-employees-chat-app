@@ -1,4 +1,4 @@
-# Experts Answers API
+# Expert Answers API
 
 A FastAPI-powered backend that uses an LLM (via OpenRouter) to generate detailed interview answers, conceptual diagrams, difficulty levels, and follow-up questions.
 
