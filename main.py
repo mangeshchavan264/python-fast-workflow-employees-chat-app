@@ -2,10 +2,9 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from llm_client import LLMClient
 import os
-
 app = FastAPI()
 
-llm = LLMClient("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")
+llm = LLMClient(os.getenv("OPENROUTER_API_KEY"))
 
 
 class InterviewRequest(BaseModel):
