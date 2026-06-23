@@ -31,12 +31,6 @@ def chat(request: ChatRequest):
         "response": answer
     }
 
-# @app.get("/chat")
-# def chat(prm):
-#     prompt="what is 3+3?"
-#     return llm.ask("what is 3+3?")
-
-
 @app.post("/interview") 
 def interview(request:InterviewRequest):
     question=request.question
@@ -62,4 +56,3 @@ def interview(request:InterviewRequest):
         "question": request.question,
         "response": answer
     }
-    
